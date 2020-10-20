@@ -4,10 +4,17 @@ import CustomNavbar from './components/CustomNavbar.js';
 import ProfileViewer from './components/ProfileViewer.js';
 import {Container, Row, Col, Card, Button} from 'react-bootstrap';
 import userData from './data/generated.json';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
     const [filterText, setFilterText] = useState('');
+    const [currentUser, setCurrentUser] = useState(null);
 
     //console.log(filterText);
 
@@ -45,7 +52,7 @@ function App() {
                           <b>Streaming services: </b>
                         {platforms}
                       </Card.Text>
-                      <Button variant="outline-warning">View profile</Button>
+                      <Button variant="outline-warning" onClick={() => setCurrentUser(user)}>View profile</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -53,15 +60,17 @@ function App() {
     })
   return (
     <div className="App">
-      <CustomNavbar filterUpdate={setFilterText}></CustomNavbar>
+      <CustomNavbar filterUpdate={setFilterText} exitProfile={setCurrentUser}></CustomNavbar>
+      {currentUser === null &&
       <Container fluid className="mt-5 pt-4 pb-4">
           <Row className="ml-2 mr-2">
             {userProfiles}
           </Row>
-      </Container>
-      {/*<Container fluid className="mt-5 pt-2 pb-4">
-          <ProfileViewer></ProfileViewer>
-  </Container>*/}
+      </Container>}
+      { currentUser !== null && 
+      <Container fluid className="mt-5 pt-2 pb-4">
+          <ProfileViewer userData={currentUser}></ProfileViewer>
+      </Container>}
     </div>
   );
 }

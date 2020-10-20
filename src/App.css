@@ -4,6 +4,7 @@
   background: linear-gradient(200deg, black, mediumpurple, orange);
   background-attachment: fixed;
   min-height: 96vh;
+  overflow: hidden;
 }
 
 .App-logo {

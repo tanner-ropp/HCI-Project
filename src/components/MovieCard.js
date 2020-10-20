@@ -23,7 +23,7 @@ class MovieCard extends Component {
         console.log(props);
         console.log("Hi");
         return (
-            <Row>
+            <Row className="m-3">
                 <Col xs="auto">
                     <img src={require('../assets/' + props.imgSrc)}></img>
                 </Col>

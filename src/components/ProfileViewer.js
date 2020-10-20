@@ -4,7 +4,7 @@ import genres from '../data/genres.json';
 import { Multiselect } from 'multiselect-react-dropdown';
 import MovieCard from './MovieCard.js'
 
-function ProfileViewer() {
+function ProfileViewer(props) {
 
     const genreList = genres.map((item) => {
         return <option>{item}</option>
@@ -24,18 +24,25 @@ function ProfileViewer() {
 	           //height : '1000px'
         },
         optionContainer: { // To change css for option container
-	           maxHeight: '1000px'
+	           maxHeight: '300px'
            }
         }
 
   return (
-      <Card bg="dark" text="light" style = {{minWidth: '18rem'}} className="mt-4 mb-4 mr-3 ml-3">
-          <Card.Header as="h3" style={{background: 'black'}}>Mariana Odom</Card.Header>
+      <Card bg="dark" text="light" style = {{minWidth: '18rem', height : '90vh'}} className="mt-4 mb-4 mr-3 ml-3">
+          <Card.Header as="h3" style={{background: 'black'}}>{props.userData.name}</Card.Header>
           <Card.Body>
             <Row>
                 <Col>
                     <h4>Movie reviews</h4>
-                    <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                    <div style={{maxHeight: '75vh', overflow: 'hidden', overflowY: 'scroll', backgroundColor: '#111111'}}>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                    </div>
                 </Col>
                 <Col>
                     <h4>Preferences</h4>
