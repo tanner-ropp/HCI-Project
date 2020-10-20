@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background: linear-gradient(30deg, pink, #9198e5);
+  /*background: linear-gradient(30deg, pink, #9198e5);*/
+  background: linear-gradient(200deg, black, mediumpurple, orange);
   background-attachment: fixed;
 }
 
