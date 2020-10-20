@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, Row, Col, Button, Form} from 'react-bootstrap';
 import genres from '../data/genres.json';
 import { Multiselect } from 'multiselect-react-dropdown';
+import MovieCard from './MovieCard.js'
 
 function ProfileViewer() {
 
@@ -34,10 +35,7 @@ function ProfileViewer() {
             <Row>
                 <Col>
                     <h4>Movie reviews</h4>
-                    <img src='https://m.media-amazon.com/images/I/81wRhFW+tEL._AC_UY436_FMwebp_QL65_.jpg'></img>
-                    <img src='https://m.media-amazon.com/images/I/811f30s5dQL._AC_UY436_FMwebp_QL65_.jpg'></img>
-                    <img src='https://m.media-amazon.com/images/I/810AwpOyZfL._AC_UY436_FMwebp_QL65_.jpg'></img>
-                    <img src='https://m.media-amazon.com/images/I/A1UTpJzoPBL._AC_UY436_FMwebp_QL65_.jpg'></img>
+                    <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
                 </Col>
                 <Col>
                     <h4>Preferences</h4>

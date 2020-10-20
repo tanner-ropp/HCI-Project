@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CustomNavbar from './components/CustomNavbar.js';
 import ProfileViewer from './components/ProfileViewer.js';
@@ -7,7 +7,13 @@ import userData from './data/generated.json';
 
 function App() {
 
-    const userProfiles = userData.map((user,i) => {
+    const [filterText, setFilterText] = useState('');
+
+    //console.log(filterText);
+
+    const userProfiles = userData.filter(user=> {
+				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
+			  }).map((user,i) => {
         var a = ["Netflix","Amazon Prime","Hulu","HBO Go","Showtime","Youtube","Vudu","HBO Max", "iTunes"];
         var res = a.sort(function() {
           return 0.5 - Math.random();
@@ -47,15 +53,15 @@ function App() {
     })
   return (
     <div className="App">
-      <CustomNavbar></CustomNavbar>
-      {/*<Container fluid className="mt-5 pt-4 pb-4">
+      <CustomNavbar filterUpdate={setFilterText}></CustomNavbar>
+      <Container fluid className="mt-5 pt-4 pb-4">
           <Row className="ml-2 mr-2">
             {userProfiles}
           </Row>
-      </Container>*/}
-      <Container fluid className="mt-5 pt-2 pb-4">
-          <ProfileViewer></ProfileViewer>
       </Container>
+      {/*<Container fluid className="mt-5 pt-2 pb-4">
+          <ProfileViewer></ProfileViewer>
+  </Container>*/}
     </div>
   );
 }
