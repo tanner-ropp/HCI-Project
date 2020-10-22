@@ -15,9 +15,10 @@ function App() {
 
     const [filterText, setFilterText] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
+    const [currentGroup, setCurrentGroup] = useState('');
     const [userProfiles, setUserProfiles] = useState(() => 
         userData.map((user) => {
-          var a = ["Netflix","Amazon Prime","Hulu","HBO Go","Showtime","Youtube","Vudu","HBO Max", "iTunes"];
+          var a = ["Amazon Prime","Hulu","HBO Go","Showtime","Disney+","Vudu","HBO Max", "Netflix"];
           var res = a.sort(function() {
             return 0.5 - Math.random();
           });
@@ -28,7 +29,7 @@ function App() {
             return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
           }
 
-          var platformArray = res.slice(0,getRandomInt(1,5));
+          var platformArray = res.slice(0,getRandomInt(1,4));
 
           var platforms = "";
           platformArray.forEach((item, i) => {
@@ -94,7 +95,10 @@ function App() {
         )
     })*/
 
-    const userProfileCards = userProfiles.filter(user=> {
+    const userProfileCards = userProfiles.filter((user => {
+        return user.platforms.toLowerCase().indexOf(currentGroup.toLowerCase()) >= 0
+        }))
+        .filter(user=> {
 				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
 			  }).map((user,i) => {
           return (
@@ -116,9 +120,10 @@ function App() {
 
   return (
     <div className="App">
-      <CustomNavbar filterUpdate={setFilterText} exitProfile={setCurrentUser} currentUser={currentUser}></CustomNavbar>
+      <CustomNavbar filterUpdate={setFilterText} exitProfile={setCurrentUser} currentUser={currentUser} setCurrentGroup={setCurrentGroup}></CustomNavbar>
       {currentUser === null &&
       <Container fluid className="mt-5 pt-4 pb-4">
+          {currentGroup !== '' && <Row className="justify-content-center mt-2"><h3 style={{color: 'white'}}>{currentGroup} users</h3></Row>}
           <Row className="ml-2 mr-2">
             {userProfileCards}
           </Row>
