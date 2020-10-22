@@ -37,12 +37,12 @@ function ProfileViewer(props) {
                 <Col>
                     <h4>Movie reviews</h4>
                     <div style={{maxHeight: '75vh', overflow: 'hidden', overflowY: 'scroll', backgroundColor: '#111111', borderRadius: '8px'}}>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
-                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
+                      <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={5} year={2000}></MovieCard>
+                      <MovieCard title='Enemy' genre='def' imgSrc='enemy.jpg' rating={4} year={2013}></MovieCard>
+                      <MovieCard title='The Emoji Movie' genre='def' imgSrc='emoji.jpg' rating={2} year={2017}></MovieCard>
+                      <MovieCard title='Moonlight' genre='def' imgSrc='moonlight.jpg' rating={5} year={2016}></MovieCard>
+                      <MovieCard title='Another Earth' genre='def' imgSrc='earth.jpg' rating={3} year={2011}></MovieCard>
+                      <MovieCard title='The Dark Knight' genre='def' imgSrc='batman.jpg' rating={5} year={2008}></MovieCard>
                     </div>
                 </Col>
                 <Col>

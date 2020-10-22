@@ -10,9 +10,12 @@ class MovieCard extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            rating: 4,
-            show: false
+            rating: this.props.rating,
+            show: false,
+            tags: []
         };
+
+        this.multiselectRef = React.createRef();
 
         this.changeRating = this.changeRating.bind(this);
     }
@@ -20,6 +23,12 @@ class MovieCard extends Component {
 
     handleClose = () => this.setState({show: false});
     handleShow = () => this.setState({show: true});
+
+    handleSave = () => {
+        this.setState({
+            tags: this.multiselectRef.current.getSelectedItems()
+        }, this.handleClose())
+    }
 
     changeRating( newRating ) {
       this.setState({
@@ -40,6 +49,10 @@ class MovieCard extends Component {
 	           maxHeight: '300px'
            }
         }
+
+        const tagNames = this.state.tags.map((tag) => { return <span>{tag.name}, </span>})
+        //console.log(this.state.tags)
+
         return (
             <Row className="m-3">
                 <Col xs="auto">
@@ -62,8 +75,9 @@ class MovieCard extends Component {
                             <Ratings.Widget />
                             <Ratings.Widget />
                         </Ratings>
-                        <div>Rating: {props.rating}/5</div>
-                        <Button onClick={this.handleShow}>Edit tags</Button>
+                        <div>Rating: {this.state.rating}/5</div>
+                        {this.state.tags.length===0 ? <div>Tags: --</div> : <div>Tags: {tagNames}</div>}
+                        <Button className="mt-3" onClick={this.handleShow}>Edit tags</Button>
                     </div>
                 </Col>
                 <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" centered>
@@ -78,13 +92,14 @@ class MovieCard extends Component {
                             avoidHighlightFirstOption="true"
                             closeOnSelect={false}
                             showCheckbox="true"
+                            ref={this.multiselectRef}
                             />
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleClose}>
                         Close
                         </Button>
-                        <Button variant="primary" onClick={this.handleClose}>
+                        <Button variant="primary" onClick={this.handleSave}>
                         Save Changes
                         </Button>
                     </Modal.Footer>
