@@ -7,6 +7,7 @@ import {useState} from 'react'
 
 function ProfileViewer(props) {
 
+    const [hasChanged, setHasChanged] = useState(false);
 
     const genreList = genres.map((item) => {
         return <option>{item}</option>
@@ -15,8 +16,6 @@ function ProfileViewer(props) {
     var genreObjects = genres.map((item,i) => {
         return {name: item, id: i};
     })
-    console.log(genreObjects);
-    console.log(genres);
 
     var selectStyles = {
           option: { // To change css for dropdown options
@@ -48,7 +47,7 @@ function ProfileViewer(props) {
                 </Col>
                 <Col>
                     <h4>Preferences</h4>
-                    <Form className="mt-5">
+                    <Form className="mt-5" onChange={() => {setHasChanged(true)}}>
                       <Form.Group>
                             <Form.Label>Streaming services:</Form.Label>
                             <div key={`inline-checkbox`} className="mb-3">
@@ -81,6 +80,8 @@ function ProfileViewer(props) {
                           {genreList}
                         </Form.Control>*/}
                         <Multiselect
+                            onSelect={() => {setHasChanged(true)}}
+                            onRemove={() => {setHasChanged(true)}}
                             options={genreObjects}
                             displayValue="name"
                             style={selectStyles}
@@ -89,9 +90,10 @@ function ProfileViewer(props) {
                             showCheckbox="true"
                             />
                       </Form.Group>
-                      <Button variant="primary">
+                      <Button variant="primary" disabled={!hasChanged} onClick={() => {setHasChanged(false)}}>
                         Apply
                       </Button>
+                      {!hasChanged && <div style={{color: "lightgreen"}}>Current preferences saved!</div>}
                     </Form>
                 </Col>
             </Row>

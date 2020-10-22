@@ -43,7 +43,7 @@ function App() {
           return user;
         })
       )
-    console.log(userProfiles[0]);
+    
 
     /*const [randState, setRandState] = useState(0.5 - Math.random());
     console.log("state " + randState);

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Row,Col, Modal, Button} from 'react-bootstrap';
 import Ratings from 'react-ratings-declarative';
-
+import { Multiselect } from 'multiselect-react-dropdown';
+import tags from '../data/tags.json';
 
 
 class MovieCard extends Component {
@@ -16,6 +17,7 @@ class MovieCard extends Component {
         this.changeRating = this.changeRating.bind(this);
     }
 
+
     handleClose = () => this.setState({show: false});
     handleShow = () => this.setState({show: true});
 
@@ -27,6 +29,17 @@ class MovieCard extends Component {
 
     render() {
         const props = this.props;
+        const selectStyles = {
+          option: { // To change css for dropdown options
+            color: 'black'
+        },
+        multiselectContainer: { // To change css for multiselect (Width,height,etc..)
+	           //height : '1000px'
+        },
+        optionContainer: { // To change css for option container
+	           maxHeight: '300px'
+           }
+        }
         return (
             <Row className="m-3">
                 <Col xs="auto">
@@ -53,11 +66,20 @@ class MovieCard extends Component {
                         <Button onClick={this.handleShow}>Edit tags</Button>
                     </div>
                 </Col>
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" centered>
+                    <Modal.Header>
+                         <Modal.Title>{props.title} ({props.year})</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Body>Set descriptive tags for this movie -
+                        <Multiselect
+                            options={tags}
+                            displayValue="name"
+                            style={selectStyles}
+                            avoidHighlightFirstOption="true"
+                            closeOnSelect={false}
+                            showCheckbox="true"
+                            />
+                    </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleClose}>
                         Close
