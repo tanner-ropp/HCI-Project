@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import CustomNavbar from './components/CustomNavbar.js';
 import ProfileViewer from './components/ProfileViewer.js';
@@ -15,10 +15,45 @@ function App() {
 
     const [filterText, setFilterText] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
+    const [userProfiles, setUserProfiles] = useState(() => 
+        userData.map((user) => {
+          var a = ["Netflix","Amazon Prime","Hulu","HBO Go","Showtime","Youtube","Vudu","HBO Max", "iTunes"];
+          var res = a.sort(function() {
+            return 0.5 - Math.random();
+          });
 
-    //console.log(filterText);
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+          }
 
-    const userProfiles = userData.filter(user=> {
+          var platformArray = res.slice(0,getRandomInt(1,5));
+
+          var platforms = "";
+          platformArray.forEach((item, i) => {
+              platforms = platforms + item;
+              if (i != platformArray.length - 1) {
+                  platforms = platforms + ", "
+              }
+          });
+          
+          user.reviews = getRandomInt(1,30)
+          user.platforms = platforms;
+          return user;
+        })
+      )
+    console.log(userProfiles[0]);
+
+    /*const [randState, setRandState] = useState(0.5 - Math.random());
+    console.log("state " + randState);
+    console.log(0.5 - Math.random());*/
+
+    /*useEffect(() => {
+      console.log("ONCE")
+    }, []);*/
+
+    /*const userProfiles = userData.filter(user=> {
 				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
 			  }).map((user,i) => {
         var a = ["Netflix","Amazon Prime","Hulu","HBO Go","Showtime","Youtube","Vudu","HBO Max", "iTunes"];
@@ -57,14 +92,35 @@ function App() {
                 </Card>
             </Col>
         )
-    })
+    })*/
+
+    const userProfileCards = userProfiles.filter(user=> {
+				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
+			  }).map((user,i) => {
+          return (
+            <Col>
+                <Card bg="dark" text="light" style = {{minWidth: '18rem', height: '90%'}} className="mt-4 mb-4 mr-3 ml-3">
+                    <Card.Header as="h4" style={{background: 'black'}}>{user.name}</Card.Header>
+                    <Card.Body className="d-flex flex-column">
+                      <Card.Title >Movies reviewed: {user.reviews}</Card.Title>
+                      <Card.Text>
+                          <b>Streaming services: </b>
+                        {user.platforms}
+                      </Card.Text>
+                      <Button variant="outline-warning" onClick={() => setCurrentUser(user)} className="mt-auto mx-auto">View profile</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+          )
+        });
+
   return (
     <div className="App">
-      <CustomNavbar filterUpdate={setFilterText} exitProfile={setCurrentUser}></CustomNavbar>
+      <CustomNavbar filterUpdate={setFilterText} exitProfile={setCurrentUser} currentUser={currentUser}></CustomNavbar>
       {currentUser === null &&
       <Container fluid className="mt-5 pt-4 pb-4">
           <Row className="ml-2 mr-2">
-            {userProfiles}
+            {userProfileCards}
           </Row>
       </Container>}
       { currentUser !== null && 

@@ -4,6 +4,8 @@ import reel from '../assets/film-reel.png';
 
 class CustomNavbar extends React.Component {
 
+
+
   filterUpdate() {
 		//Here you will need to update the value of the filter with the value from the textbox
 		const val = this.myValue.value;
@@ -14,7 +16,7 @@ class CustomNavbar extends React.Component {
   render() {
     return (
       <Navbar  variant="dark" fixed="top" style={{background: 'black'}}>
-        <Navbar.Brand href="#home" style={{fontFamily: 'Racing Sans One, cursive', fontSize: '30px'}} >
+        <Navbar.Brand href="#home" onClick={() => this.props.exitProfile(null)} style={{fontFamily: 'Racing Sans One, cursive', fontSize: '30px'}} >
           <img
             alt=""
             src={reel}

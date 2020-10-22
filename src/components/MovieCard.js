@@ -27,8 +27,6 @@ class MovieCard extends Component {
 
     render() {
         const props = this.props;
-        console.log(props);
-        console.log("Hi");
         return (
             <Row className="m-3">
                 <Col xs="auto">
