@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Nav, FormControl, Form, Button} from 'react-bootstrap';
+import reel from '../assets/film-reel.png';
 
 class CustomNavbar extends React.Component {
 
@@ -13,7 +14,16 @@ class CustomNavbar extends React.Component {
   render() {
     return (
       <Navbar  variant="dark" fixed="top" style={{background: 'black'}}>
-        <Navbar.Brand href="#home">HCI Project</Navbar.Brand>
+        <Navbar.Brand href="#home" style={{fontFamily: 'Racing Sans One, cursive', fontSize: '30px'}} >
+          <img
+            alt=""
+            src={reel}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />
+          MovieMasters
+        </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home" onClick={() => this.props.exitProfile(null)}>Home</Nav.Link>
         </Nav>

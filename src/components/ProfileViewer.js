@@ -1,10 +1,12 @@
 import React from 'react';
-import {Card, Row, Col, Button, Form} from 'react-bootstrap';
+import {Card, Row, Col, Button, Form, Modal} from 'react-bootstrap';
 import genres from '../data/genres.json';
 import { Multiselect } from 'multiselect-react-dropdown';
 import MovieCard from './MovieCard.js'
+import {useState} from 'react'
 
 function ProfileViewer(props) {
+
 
     const genreList = genres.map((item) => {
         return <option>{item}</option>
@@ -35,7 +37,7 @@ function ProfileViewer(props) {
             <Row>
                 <Col>
                     <h4>Movie reviews</h4>
-                    <div style={{maxHeight: '75vh', overflow: 'hidden', overflowY: 'scroll', backgroundColor: '#111111'}}>
+                    <div style={{maxHeight: '75vh', overflow: 'hidden', overflowY: 'scroll', backgroundColor: '#111111', borderRadius: '8px'}}>
                       <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
                       <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
                       <MovieCard title='Memento' genre='def' imgSrc='Memento.jpg' rating={4.5} year={1987}></MovieCard>
@@ -87,7 +89,7 @@ function ProfileViewer(props) {
                             showCheckbox="true"
                             />
                       </Form.Group>
-                      <Button variant="primary" type="submit">
+                      <Button variant="primary">
                         Apply
                       </Button>
                     </Form>

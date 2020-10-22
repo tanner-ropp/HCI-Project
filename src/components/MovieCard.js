@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import {Row,Col} from 'react-bootstrap';
+import {Row,Col, Modal, Button} from 'react-bootstrap';
 import Ratings from 'react-ratings-declarative';
 
 
 
 class MovieCard extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { rating: 4 };
+        this.state = { 
+            rating: 4,
+            show: false
+        };
 
         this.changeRating = this.changeRating.bind(this);
     }
+
+    handleClose = () => this.setState({show: false});
+    handleShow = () => this.setState({show: true});
 
     changeRating( newRating ) {
       this.setState({
@@ -45,8 +52,23 @@ class MovieCard extends Component {
                             <Ratings.Widget />
                         </Ratings>
                         <div>Rating: {props.rating}/5</div>
+                        <Button onClick={this.handleShow}>Edit tags</Button>
                     </div>
                 </Col>
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                        Close
+                        </Button>
+                        <Button variant="primary" onClick={this.handleClose}>
+                        Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </Row>
         );
     }
