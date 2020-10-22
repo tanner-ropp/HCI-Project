@@ -44,15 +44,15 @@ function App() {
 
         return (
             <Col>
-                <Card bg="dark" text="light" style = {{minWidth: '18rem'}} className="mt-4 mb-4 mr-3 ml-3">
+                <Card bg="dark" text="light" style = {{minWidth: '18rem', height: '90%'}} className="mt-4 mb-4 mr-3 ml-3">
                     <Card.Header as="h4" style={{background: 'black'}}>{user.name}</Card.Header>
-                    <Card.Body>
+                    <Card.Body className="d-flex flex-column">
                       <Card.Title >Movies reviewed: {getRandomInt(1,53)}</Card.Title>
                       <Card.Text>
                           <b>Streaming services: </b>
                         {platforms}
                       </Card.Text>
-                      <Button variant="outline-warning" onClick={() => setCurrentUser(user)}>View profile</Button>
+                      <Button variant="outline-warning" onClick={() => setCurrentUser(user)} className="mt-auto mx-auto">View profile</Button>
                     </Card.Body>
                 </Card>
             </Col>
