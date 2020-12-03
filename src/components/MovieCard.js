@@ -3,7 +3,8 @@ import {Row,Col, Modal, Button} from 'react-bootstrap';
 import Ratings from 'react-ratings-declarative';
 import { Multiselect } from 'multiselect-react-dropdown';
 import tags from '../data/tags.json';
-
+import sortedTags from '../data/sortedTags.json'
+import DropdownTreeSelect from 'react-dropdown-tree-select'
 
 class MovieCard extends Component {
 
@@ -16,6 +17,7 @@ class MovieCard extends Component {
         };
 
         this.multiselectRef = React.createRef();
+        this.treeRef = React.createRef();
 
         this.changeRating = this.changeRating.bind(this);
     }
@@ -85,7 +87,7 @@ class MovieCard extends Component {
                          <Modal.Title>{props.title} ({props.year})</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>Set descriptive tags for this movie -
-                        <Multiselect
+                        {/*<Multiselect
                             options={tags}
                             displayValue="name"
                             style={selectStyles}
@@ -93,7 +95,8 @@ class MovieCard extends Component {
                             closeOnSelect={false}
                             showCheckbox="true"
                             ref={this.multiselectRef}
-                            />
+                        />*/}
+                        <DropdownTreeSelect id="tags" className="bootstrap-demo" data={sortedTags} mode="hierarchical"/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleClose}>

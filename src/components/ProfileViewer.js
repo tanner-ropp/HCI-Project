@@ -86,7 +86,7 @@ function ProfileViewer(props) {
                               closeOnSelect={false}
                               showCheckbox="true"
                           />*/}
-                          <DropdownTreeSelect className="bootstrap-demo" data={sortedGenres} onChange={() => setHasChanged(true)} />
+                          <DropdownTreeSelect className="bootstrap-demo" data={sortedGenres} onChange={() => setHasChanged(true)} showPartiallySelected={true}/>
                         </Form.Group>
                         <Button variant="primary" disabled={!hasChanged} onClick={() => {setHasChanged(false)}}>
                           Apply

@@ -58,6 +58,15 @@
   width: 100%;
 }
 
+#tags .tree label {
+  pointer-events: none;
+}
+
+#tags .tree .checkbox-item {
+  visibility: hidden;
+  display: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

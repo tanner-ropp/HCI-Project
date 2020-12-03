@@ -1,0 +1,216 @@
+[
+    {
+        "label" : "emotions",
+        "value" : "",
+        "disabled" : "true",
+        "children" : [
+            {
+                "label" : "tear-jerker",
+                "value" : ""
+            },
+            {
+                "label" : "enjoyable",
+                "value" : ""
+            },
+            {
+                "label" : "moving",
+                "value" : ""
+            },
+            {
+                "label" : "powerful",
+                "value" : ""
+            },
+            {
+                "label" : "emotional",
+                "value" : ""
+            },
+            {
+                "label" : "heart-warming",
+                "value" : ""
+            },
+            {
+                "label" : "fun",
+                "value" : ""
+            },
+            {
+                "label" : "funny",
+                "value" : ""
+            },
+            {
+                "label" : "depressing",
+                "value" : ""
+            },
+            {
+                "label" : "uplifting",
+                "value" : ""
+            },
+            {
+                "label" : "warm",
+                "value" : ""
+            }
+        ]
+    }, 
+    {
+        "label" : "audience",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "good for kids",
+                "value" : ""
+            },
+            {
+                "label" : "not good for kids",
+                "value" : ""
+            }
+        ]
+    },
+    {
+        "label" : "social issues",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "feminism",
+                "value" : ""
+            },
+            {
+                "label" : "racism",
+                "value" : ""
+            },
+            {
+                "label" : "LGBT discrimination",
+                "value" : ""
+            },
+            {
+                "label" : "xenophobia",
+                "value" : ""
+            },
+            {
+                "label" : "transphobia",
+                "value" : ""
+            }
+        ]
+    },{
+        "label" : "era",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "WW1",
+                "value" : ""
+            },
+            {
+                "label" : "WW2",
+                "value" : ""
+            },{
+                "label" : "1970s",
+                "value" : ""
+            },
+            {
+                "label" : "1980s",
+                "value" : ""
+            },
+            {
+                "label" : "1990s",
+                "value" : ""
+            }
+        ]
+    },{
+        "label" : "production",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "well-acted",
+                "value" : ""
+            },
+            {
+                "label" : "well-written",
+                "value" : ""
+            },
+            {
+                "label" : "written-directed",
+                "value" : ""
+            },
+            {
+                "label" : "low-budget",
+                "value" : ""
+            },
+            {
+                "label" : "visual effects",
+                "value" : ""
+            },
+            {
+                "label" : "ensemble cast",
+                "value" : ""
+            }
+        ]
+    },{
+        "label" : "sci-fi elements",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "zombies",
+                "value" : ""
+            },
+            {
+                "label" : "aliens",
+                "value" : ""
+            },
+            {
+                "label" : "time travel",
+                "value" : ""
+            },
+            {
+                "label" : "space",
+                "value" : ""
+            },
+            {
+                "label" : "ghosts",
+                "value" : ""
+            }
+        ]
+    },{
+        "label" : "story type",
+        "value" : "",
+        "children" : [
+            {
+                "label" : "character-driven",
+                "value" : ""
+            },
+            {
+                "label" : "coming-of-age",
+                "value" : ""
+            },
+            {
+                "label" : "based on a book",
+                "value" : ""
+            },
+            {
+                "label" : "father-daughter",
+                "value" : ""
+            },
+            {
+                "label" : "father-son",
+                "value" : ""
+            },
+            {
+                "label" : "mother-daughter",
+                "value" : ""
+            },
+            {
+                "label" : "mother-son",
+                "value" : ""
+            },
+            {
+                "label" : "slow-moving",
+                "value" : ""
+            },
+            {
+                "label" : "brainy",
+                "value" : ""
+            },
+            {
+                "label" : "survival",
+                "value" : ""
+            }
+        ]
+    }
+]
