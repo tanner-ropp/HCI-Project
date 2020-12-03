@@ -13,6 +13,10 @@ function ProfileViewer(props) {
 
     const [hasChanged, setHasChanged] = useState(false);
 
+    const handleChange = (currentNode, selectedNode) => {
+      
+    }
+
     const genreList = genres.map((item) => {
         return <option>{item}</option>
     });
@@ -86,7 +90,7 @@ function ProfileViewer(props) {
                               closeOnSelect={false}
                               showCheckbox="true"
                           />*/}
-                          <DropdownTreeSelect className="bootstrap-demo" data={sortedGenres} onChange={() => setHasChanged(true)} showPartiallySelected={true}/>
+                          <DropdownTreeSelect className="bootstrap-demo" data={sortedGenres} onChange={handleChange} showPartiallySelected={true}/>
                         </Form.Group>
                         <Button variant="primary" disabled={!hasChanged} onClick={() => {setHasChanged(false)}}>
                           Apply
