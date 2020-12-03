@@ -1,0 +1,110 @@
+[
+    {
+        "label": "Comedy",
+        "value": "",
+        "children" : [
+            {
+                "label": "Romantic Comedy",
+                "value": ""
+            },
+            {
+                "label": "Buddy Comedy",
+                "value": ""
+            },
+            {
+                "label": "Black Comedy",
+                "value": ""
+            },
+            {
+                "label": "Slapstick",
+                "value": ""
+            },
+            {
+                "label": "Farce",
+                "value": ""
+            },
+            {
+                "label": "Parody",
+                "value": ""
+            },
+            {
+                "label": "Satire",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "label": "Horror",
+        "value": "",
+        "children": [
+            {
+                "label": "Gothic Horror",
+                "value": ""
+            },
+            {
+                "label": "Supernatural Horror",
+                "value": ""
+            },
+            {
+                "label": "Monster Movie",
+                "value": ""
+            },
+            {
+                "label": "Psychological Horror",
+                "value": ""
+            },
+            {
+                "label": "Slasher Film",
+                "value": ""
+            },
+            {
+                "label": "Body Horror",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "label": "Action",
+        "value": "",
+        "children": [
+            {
+                "label": "Action Adventure",
+                "value": ""
+            },
+            {
+                "label": "Disaster Film",
+                "value": ""
+            },
+            {
+                "label": "Martial Arts",
+                "value": ""
+            },
+            {
+                "label": "Spy Film",
+                "value": ""
+            }
+        ]
+    },
+    {
+        "label": "Drama",
+        "value": "",
+        "children" :[
+            {
+                "label": "Crime Drama",
+                "value": ""
+            },
+            {
+                "label": "Historical Drama",
+                "value": ""
+            },
+            {
+                "label": "Teen Drama",
+                "value": ""
+            },
+            {
+                "label": "Docudrama",
+                "value": ""
+            }
+        ]
+    }
+]

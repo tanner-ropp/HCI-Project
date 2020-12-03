@@ -46,55 +46,6 @@ function App() {
       )
     
 
-    /*const [randState, setRandState] = useState(0.5 - Math.random());
-    console.log("state " + randState);
-    console.log(0.5 - Math.random());*/
-
-    /*useEffect(() => {
-      console.log("ONCE")
-    }, []);*/
-
-    /*const userProfiles = userData.filter(user=> {
-				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
-			  }).map((user,i) => {
-        var a = ["Netflix","Amazon Prime","Hulu","HBO Go","Showtime","Youtube","Vudu","HBO Max", "iTunes"];
-        var res = a.sort(function() {
-          return 0.5 - Math.random();
-        });
-
-        function getRandomInt(min, max) {
-          min = Math.ceil(min);
-          max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-        }
-
-        var platformArray = res.slice(0,getRandomInt(1,5));
-
-        var platforms = "";
-        platformArray.forEach((item, i) => {
-            platforms = platforms + item;
-            if (i != platformArray.length - 1) {
-                platforms = platforms + ", "
-            }
-        });
-
-        return (
-            <Col>
-                <Card bg="dark" text="light" style = {{minWidth: '18rem', height: '90%'}} className="mt-4 mb-4 mr-3 ml-3">
-                    <Card.Header as="h4" style={{background: 'black'}}>{user.name}</Card.Header>
-                    <Card.Body className="d-flex flex-column">
-                      <Card.Title >Movies reviewed: {getRandomInt(1,53)}</Card.Title>
-                      <Card.Text>
-                          <b>Streaming services: </b>
-                        {platforms}
-                      </Card.Text>
-                      <Button variant="outline-warning" onClick={() => setCurrentUser(user)} className="mt-auto mx-auto">View profile</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
-        )
-    })*/
-
     const userProfileCards = userProfiles.filter((user => {
         return user.platforms.toLowerCase().indexOf(currentGroup.toLowerCase()) >= 0
         }))
