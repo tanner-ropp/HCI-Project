@@ -51,27 +51,36 @@ function ProfileViewer(props) {
                       <Form.Group>
                             <Form.Label>Streaming services:</Form.Label>
                             <div key={`inline-checkbox`} className="mb-3">
-                              <Form.Check inline label="Netflix" type="checkbox" id={`inline-checkbox-1`} />
-                              <Form.Check inline label="Amazon Prime" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Hulu" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="HBO Go" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="HBO Max" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="HBO Now" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Showtime" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Vudu" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Youtube" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="iTunes" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Apple TV" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Disney+" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Quibi" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Starz" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Epix Now" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Britbox" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Shudder" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="ESPN" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="DC Universe" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="BET+" type="checkbox" id={`inline-checkbox-2`} />
-                              <Form.Check inline label="Sundance Now" type="checkbox" id={`inline-checkbox-2`} />
+                              <Row>
+                                <Col className="text-left">
+                                  <Form.Check label="Netflix" type="checkbox" id={`inline-checkbox-1`} />
+                                  <Form.Check label="Amazon Prime" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Hulu" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="HBO Go" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Shudder" type="checkbox" id={`inline-checkbox-2`} />
+                                </Col>
+                                <Col className="text-left">
+                                  <Form.Check label="HBO Max" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="HBO Now" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Showtime" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Vudu" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="ESPN" type="checkbox" id={`inline-checkbox-2`} />
+                                </Col>
+                                <Col className="text-left">
+                                    <Form.Check label="Youtube" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="iTunes" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Apple TV" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="Disney+" type="checkbox" id={`inline-checkbox-2`} />
+                                  <Form.Check label="DC Universe" type="checkbox" id={`inline-checkbox-2`} />
+                                </Col>
+                                <Col className="text-left">
+                                    <Form.Check label="Quibi" type="checkbox" id={`inline-checkbox-2`} />
+                                    <Form.Check label="Starz" type="checkbox" id={`inline-checkbox-2`} />
+                                    <Form.Check label="Epix Now" type="checkbox" id={`inline-checkbox-2`} />
+                                    <Form.Check label="Britbox" type="checkbox" id={`inline-checkbox-2`} />
+                                    <Form.Check label="BET+" type="checkbox" id={`inline-checkbox-2`} />
+                                </Col>
+                              </Row>
                             </div>
                       </Form.Group>
                       <Form.Group controlId="exampleForm.ControlSelect2">
