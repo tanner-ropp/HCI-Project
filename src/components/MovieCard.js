@@ -50,7 +50,12 @@ class MovieCard extends Component {
            }
         }
 
-        const tagNames = this.state.tags.map((tag) => { return <span>{tag.name}, </span>})
+        const tagNames = this.state.tags.map((tag, index) => { 
+            if (index === 0) {
+                return <span>{tag.name}</span>
+            }
+            return <span>, {tag.name} </span>
+        })
         //console.log(this.state.tags)
 
         return (
