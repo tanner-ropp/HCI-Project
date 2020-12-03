@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import {Row,Col, Modal, Button} from 'react-bootstrap';
 import Ratings from 'react-ratings-declarative';
 import { Multiselect } from 'multiselect-react-dropdown';
 import tags from '../data/tags.json';
 import sortedTags from '../data/sortedTags.json'
 import DropdownTreeSelect from 'react-dropdown-tree-select'
+
 
 class MovieCard extends Component {
 
@@ -13,7 +14,8 @@ class MovieCard extends Component {
         this.state = { 
             rating: this.props.rating,
             show: false,
-            tags: []
+            tags: [],
+            tempTags: []
         };
 
         this.multiselectRef = React.createRef();
@@ -22,13 +24,25 @@ class MovieCard extends Component {
         this.changeRating = this.changeRating.bind(this);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.show && nextState.show) {
+            return false // dont re render while still in modal
+        }
+        return true
+    }
 
-    handleClose = () => this.setState({show: false});
+    handleClose = () => this.setState({show: false, tempTags: []});
     handleShow = () => this.setState({show: true});
+
+    handleChange = (currentNode, selectedNodes) => {
+        this.setState({
+            tempTags : selectedNodes
+        })
+    }
 
     handleSave = () => {
         this.setState({
-            tags: this.multiselectRef.current.getSelectedItems()
+            tags: this.state.tempTags
         }, this.handleClose())
     }
 
@@ -52,7 +66,12 @@ class MovieCard extends Component {
            }
         }
 
-        const tagNames = this.state.tags.map((tag) => { return <span>{tag.name}, </span>})
+        const tagNames = this.state.tags.map((tag, index) => { 
+            if (index === 0) {
+                return <span>{tag.label}</span>
+            }
+            return <span>, {tag.label} </span>
+        })
         //console.log(this.state.tags)
 
         return (
@@ -96,7 +115,7 @@ class MovieCard extends Component {
                             showCheckbox="true"
                             ref={this.multiselectRef}
                         />*/}
-                        <DropdownTreeSelect id="tags" className="bootstrap-demo" data={sortedTags} mode="hierarchical"/>
+                        <DropdownTreeSelect id="tags" className="bootstrap-demo" onChange={this.handleChange} data={sortedTags} mode="hierarchical"/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleClose}>

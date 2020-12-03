@@ -2,7 +2,6 @@
     {
         "label" : "emotions",
         "value" : "",
-        "disabled" : "true",
         "children" : [
             {
                 "label" : "tear-jerker",
