@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CustomNavbar from './components/CustomNavbar.js';
 import ProfileViewer from './components/ProfileViewer.js';
 import {Container, Row, Col, Card, Button} from 'react-bootstrap';
 import userData from './data/generated.json';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 function App() {
 
@@ -53,7 +48,7 @@ function App() {
 				return user.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
 			  }).map((user,i) => {
           return (
-            <Col>
+            <Col key={i}>
                 <Card bg="dark" text="light" style = {{minWidth: '18rem', height: '90%'}} className="mt-4 mb-4 mr-3 ml-3">
                     <Card.Header as="h4" style={{background: 'black'}}>{user.name}</Card.Header>
                     <Card.Body className="d-flex flex-column">
