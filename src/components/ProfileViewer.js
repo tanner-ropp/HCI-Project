@@ -101,6 +101,31 @@ function ProfileViewer(props) {
                 </Col>
             </Row>
           </Card.Body>
+          <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" centered>
+                    <Modal.Header>
+                         <Modal.Title>{props.title} ({props.year})</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Set descriptive tags for this movie -
+                        {/*<Multiselect
+                            options={tags}
+                            displayValue="name"
+                            style={selectStyles}
+                            avoidHighlightFirstOption="true"
+                            closeOnSelect={false}
+                            showCheckbox="true"
+                            ref={this.multiselectRef}
+                        />*/}
+                        <DropdownTreeSelect id="tags" className="bootstrap-demo" onChange={this.handleChange} data={sortedTags} mode="hierarchical"/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                        Close
+                        </Button>
+                        <Button variant="primary" onClick={this.handleSave}>
+                        Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
       </Card>
   );
 }
