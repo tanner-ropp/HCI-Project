@@ -18,6 +18,7 @@ class MovieCard extends Component {
         this.multiselectRef = React.createRef();
 
         this.changeRating = this.changeRating.bind(this);
+
     }
 
 
@@ -49,6 +50,8 @@ class MovieCard extends Component {
 	           maxHeight: '300px'
            }
         }
+
+        const sortedTags = tags.sort((a,b) => {return a.name > b.name})
 
         const tagNames = this.state.tags.map((tag, index) => { 
             if (index === 0) {
@@ -91,7 +94,7 @@ class MovieCard extends Component {
                     </Modal.Header>
                     <Modal.Body>Set descriptive tags for this movie -
                         <Multiselect
-                            options={tags}
+                            options={sortedTags}
                             displayValue="name"
                             style={selectStyles}
                             avoidHighlightFirstOption="true"
