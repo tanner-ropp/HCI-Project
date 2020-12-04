@@ -51,7 +51,13 @@ class MovieCard extends Component {
            }
         }
 
-        const sortedTags = tags.sort((a,b) => {return a.name > b.name})
+        const sortedTags = tags.sort((a,b) => {
+            if (a.name > b.name) {
+                return 1
+            } else {
+                return -1
+            }
+        })
 
         const tagNames = this.state.tags.map((tag, index) => { 
             if (index === 0) {
