@@ -132,21 +132,12 @@ class ProfileViewer extends Component {
                 </Col>
             </Row>
           </Card.Body>
-<<<<<<< HEAD
-          <Modal show={this.state.show} onHide={this.handleClose} backdrop="static" centered>
-                    <Modal.Header>
-                         <Modal.Title>{props.title} ({props.year})</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Set descriptive tags for this movie -
-                        {/*<Multiselect
-                            options={tags}
-=======
           <Modal show={this.state.showGenre} onHide={this.handleCloseGenre} backdrop="static" centered>
               <Modal.Header>
                     <Modal.Title>Genre preferences</Modal.Title>
               </Modal.Header>
               <Modal.Body>Select preferred movie genres -
-                  <DropdownTreeSelect id="genres" className="bootstrap-demo" onChange={this.handleChange} data={sortedGenres}/>
+                  <DropdownTreeSelect id="genres" className="bootstrap-demo" onChange={this.handleChange} data={sortedGenres} showPartiallySelected={true}/>
               </Modal.Body>
               <Modal.Footer>
                   <Button variant="secondary" onClick={this.handleCloseGenre}>
@@ -164,27 +155,12 @@ class ProfileViewer extends Component {
               <Modal.Body>Select preferred streaming services -
                   <Multiselect
                             options={streamingServices}
->>>>>>> b952018126b3ac9adab73b115e3f48718715d081
                             displayValue="name"
                             style={selectStyles}
                             avoidHighlightFirstOption="true"
                             closeOnSelect={false}
                             showCheckbox="true"
                             ref={this.multiselectRef}
-<<<<<<< HEAD
-                        />*/}
-                        <DropdownTreeSelect id="tags" className="bootstrap-demo" onChange={this.handleChange} data={sortedTags} mode="hierarchical"/>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
-                        Close
-                        </Button>
-                        <Button variant="primary" onClick={this.handleSave}>
-                        Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-=======
                         />
               </Modal.Body>
               <Modal.Footer>
@@ -196,7 +172,6 @@ class ProfileViewer extends Component {
                   </Button>
               </Modal.Footer>
           </Modal>
->>>>>>> b952018126b3ac9adab73b115e3f48718715d081
       </Card>
   )
   }
