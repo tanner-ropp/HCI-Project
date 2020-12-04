@@ -1,8 +1,6 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import {Row,Col, Modal, Button} from 'react-bootstrap';
 import Ratings from 'react-ratings-declarative';
-import { Multiselect } from 'multiselect-react-dropdown';
-import tags from '../data/tags.json';
 import sortedTags from '../data/sortedTags.json'
 import DropdownTreeSelect from 'react-dropdown-tree-select'
 
