@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Nav, FormControl, Form, Button, NavDropdown} from 'react-bootstrap';
 import reel from '../assets/film-reel.png';
+import services from '../data/streamingServices.json'
 
 class CustomNavbar extends React.Component {
 
@@ -14,6 +15,14 @@ class CustomNavbar extends React.Component {
 	}
 
   render() {
+
+    const serviceOptions = services.map((service, i) => {
+      const r = '#action/3.' + i;
+      return (
+        <NavDropdown.Item href={r} onClick={() => this.props.setCurrentGroup(service.name)}>{service.name} users</NavDropdown.Item>
+      )
+    })
+
     return (
       <Navbar variant="dark" fixed="top" style={{background: 'black'}}>
         <Navbar.Brand href="#home" onClick={() => {this.props.exitProfile(null); this.props.setCurrentGroup('')}} style={{fontFamily: 'Racing Sans One, cursive', fontSize: '30px'}} >
@@ -29,10 +38,7 @@ class CustomNavbar extends React.Component {
         <Nav className="mr-auto">
           <Nav.Link href="#home" onClick={() => {this.props.exitProfile(null); this.props.setCurrentGroup('')}}>Home</Nav.Link>
           <NavDropdown title="User groups" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1" onClick={() => this.props.setCurrentGroup('Netflix')}>Netflix users</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2" onClick={() => this.props.setCurrentGroup('Hulu')}>Hulu users</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3" onClick={() => this.props.setCurrentGroup('HBO Go')}>HBO Go users</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.4" onClick={() => this.props.setCurrentGroup('Disney+')}>Disney+ users</NavDropdown.Item>
+            {serviceOptions}
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.5" onClick={() => this.props.setCurrentGroup('')}>All users</NavDropdown.Item>
           </NavDropdown>
